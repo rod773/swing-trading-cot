@@ -1,0 +1,288 @@
+1
+00:00:00,680 --> 00:00:05,320
+You are about to learn one of the most intriguing of any indicator you're going to ever see
+
+2
+00:00:05,320 --> 00:00:09,320
+on the commodity market or for that matter for the stock market.
+
+3
+00:00:09,320 --> 00:00:12,160
+This is an indicator that I developed in 1998.
+
+4
+00:00:12,160 --> 00:00:17,200
+It's called Will Val, Will obviously my last name, Williams Val, it's about valuation.
+
+5
+00:00:17,200 --> 00:00:21,520
+In other words, what I was able to arrive at is a way that we can determine if a commodity
+
+6
+00:00:21,520 --> 00:00:23,840
+is overvalued or undervalued.
+
+7
+00:00:23,840 --> 00:00:27,920
+Now I'm not talking overbought or oversold here, that's a totally different concept.
+
+8
+00:00:27,920 --> 00:00:33,720
+What we're talking about is a valuation measure for virtually every single commodity that exists.
+
+9
+00:00:33,720 --> 00:00:38,120
+I'll be showing that to you in a moment, but what's really behind this is gold makes the
+
+10
+00:00:38,120 --> 00:00:39,120
+world go round.
+
+11
+00:00:39,120 --> 00:00:44,540
+And what I've noticed in my studies is that there is a ratio or a relationship between
+
+12
+00:00:44,540 --> 00:00:49,760
+the price of gold and all natural resources, well actually all markets move relative to
+
+13
+00:00:49,760 --> 00:00:51,280
+the price of gold.
+
+14
+00:00:51,280 --> 00:00:55,160
+When I was a young kid, I remember my grandfather saying that you could buy a man's suit for
+
+15
+00:00:55,160 --> 00:00:56,680
+one ounce of gold.
+
+16
+00:00:56,680 --> 00:00:59,000
+That was true then and it's true today.
+
+17
+00:00:59,000 --> 00:01:03,260
+Even with gold trading now at about $600 an ounce, you can buy a nice suit for that.
+
+18
+00:01:03,260 --> 00:01:07,800
+So did the price of suits go up or does the whole world revolve around gold?
+
+19
+00:01:07,800 --> 00:01:14,120
+That in fact what happened, it's the same ratio now between gold and wheat, between gold and
+
+20
+00:01:14,120 --> 00:01:16,020
+a man's suit or whatever it is.
+
+21
+00:01:16,020 --> 00:01:20,780
+So what we're looking at is the ratio of these markets to gold.
+
+22
+00:01:20,780 --> 00:01:23,900
+Now there are two types of future markets you need to be aware of.
+
+23
+00:01:23,900 --> 00:01:27,220
+One is the natural resource market, that would be real commodities.
+
+24
+00:01:27,220 --> 00:01:30,480
+Wheat, corn, cocoa, cotton, coffee, soybeans.
+
+25
+00:01:30,480 --> 00:01:32,800
+Those are real things that come from nature.
+
+26
+00:01:32,800 --> 00:01:35,800
+Then we have the abstract or man-made commodities.
+
+27
+00:01:35,800 --> 00:01:40,240
+That would be like the Swiss franc, euro dollars, treasury bonds, stock indexes, things of that
+
+28
+00:01:40,240 --> 00:01:41,240
+nature.
+
+29
+00:01:41,240 --> 00:01:42,800
+Those are things that are simply a figment of man's imagination.
+
+30
+00:01:42,800 --> 00:01:48,940
+We're going to look at those against gold and also another way of evaluating these man-made
+
+31
+00:01:48,940 --> 00:01:49,940
+commodities.
+
+32
+00:01:49,940 --> 00:01:54,600
+Well first we'll be looking at the natural resource commodities which value so well versus
+
+33
+00:01:54,600 --> 00:01:56,120
+the price of gold.
+
+34
+00:01:56,120 --> 00:02:01,300
+Now what you're going to be looking at and seeing is the relationship between the spread,
+
+35
+00:02:01,300 --> 00:02:05,600
+between the market and the price of gold.
+
+36
+00:02:05,600 --> 00:02:08,060
+Real commodities, value to gold.
+
+37
+00:02:08,060 --> 00:02:10,740
+The starting point is the spread between gold and the commodity.
+
+38
+00:02:10,740 --> 00:02:14,280
+I'll show you the formula and then in a moment we're going to look at charts so you can see
+
+39
+00:02:14,280 --> 00:02:15,400
+how this actually works.
+
+40
+00:02:15,400 --> 00:02:18,260
+I'm going to take a two week moving average of the spread.
+
+41
+00:02:18,260 --> 00:02:22,840
+The spread is simply the difference between gold and say pork bellies on a weekly basis.
+
+42
+00:02:22,840 --> 00:02:25,360
+We'll continue to use all weekly data here.
+
+43
+00:02:25,360 --> 00:02:30,140
+And I'm going to compare the two week moving average of the spread versus the 22 week moving
+
+44
+00:02:30,140 --> 00:02:32,140
+average of the spread.
+
+45
+00:02:32,140 --> 00:02:35,540
+Then I look at this current reading versus the highest and lowest reading of the last
+
+46
+00:02:35,540 --> 00:02:36,540
+three years.
+
+47
+00:02:36,540 --> 00:02:42,800
+In other words, the spread, the two week moving average of the spread, way out or above the
+
+48
+00:02:42,800 --> 00:02:45,000
+22 week average of the spread.
+
+49
+00:02:45,000 --> 00:02:46,720
+If so, we're in an overvalued zone.
+
+50
+00:02:46,720 --> 00:02:52,880
+If it's way far below the 22 week moving average, then we are in an undervalued zone.
+
+51
+00:02:52,880 --> 00:02:57,000
+And we're going to do this as a percentage of where we are now versus the last three
+
+52
+00:02:57,000 --> 00:02:58,000
+years.
+
+53
+00:02:58,000 --> 00:03:00,600
+That's the same formula that we looked at when we looked at the commitment of trader
+
+54
+00:03:00,600 --> 00:03:01,600
+report.
+
+55
+00:03:01,600 --> 00:03:05,760
+So we're going to simply have a window of the last three years and then see is the spread
+
+56
+00:03:05,760 --> 00:03:11,620
+relationship, the difference between the two week and the 22 week moving average excessively
+
+57
+00:03:11,620 --> 00:03:12,620
+high.
+
+58
+00:03:12,620 --> 00:03:16,960
+Is it at the high end of the spread ratio or is it at the low end of the spread ratio?
+
+59
+00:03:16,960 --> 00:03:20,960
+Now it's time to look at charts and what you're going to be seeing here is time after
+
+60
+00:03:20,960 --> 00:03:23,460
+time when this ratio is very high.
+
+61
+00:03:23,460 --> 00:03:28,780
+We are in an overvalued condition and when it's low, we are in an undervalued condition.
+
+62
+00:03:28,780 --> 00:03:32,480
+Let me be the first one to point out though that simply because we're undervalued does
+
+63
+00:03:32,480 --> 00:03:36,920
+not mean that a market is going to rally right now today, nor if we're overvalued, it doesn't
+
+64
+00:03:36,920 --> 00:03:39,340
+mean we're going to decline right now today.
+
+65
+00:03:39,340 --> 00:03:44,820
+What it means is that we are in the area, that's the important point, the area of undervaluation
+
+66
+00:03:44,820 --> 00:03:46,500
+and overvaluation.
+
+67
+00:03:46,500 --> 00:03:49,940
+And then what we'll do is start to bring in some timing mechanisms once we get these set
+
+68
+00:03:49,940 --> 00:03:50,940
+up tools.
+
+69
+00:03:50,940 --> 00:03:55,120
+But you're going to learn one of the most fascinating and wonderful set up tools that you've just
+
+70
+00:03:55,120 --> 00:03:56,120
+ever going to learn.
+
+71
+00:03:56,120 --> 00:03:56,620
+It's a great tool.
+
+72
+00:03:56,620 --> 00:03:56,660
+It's a great tool.
+
