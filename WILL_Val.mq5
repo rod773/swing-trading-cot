@@ -1,5 +1,5 @@
 //+------------------------------------------------------------------+
-//|                                                 COT_Valuation.mq5 |
+//|                                                 WILL_Val.mq5 |
 //|                                     Based on Larry Williams (1998)|
 //|                                              COT Valuation Index  |
 //+------------------------------------------------------------------+
@@ -9,7 +9,7 @@
 #property indicator_separate_window
 #property indicator_buffers 6
 #property indicator_plots   3
-#property indicator_shortname "COT Valuation Index"
+#property indicator_shortname "WILL Val"
 //--- plot 1: %-Rank colored line
 #property indicator_type1   DRAW_COLOR_LINE
 #property indicator_color1  clrBlue, clrMaroon, clrGreen
