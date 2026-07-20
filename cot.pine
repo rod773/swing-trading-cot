@@ -22,7 +22,11 @@ indicator(
 // ───────────────────────────────────────────────────────────────────────────
 
 // ─── Inputs ────────────────────────────────────────────────────────────────
-src = input.source(close, "Data Source")
+goldTicker = input.symbol("XAUUSD", "Gold Ticker")
+chartSrc  = close
+
+goldClose = request.security(goldTicker, timeframe.period, close)
+spread = goldClose - chartSrc
 
 shortLen = input.int(2,   "Short MA Period", minval=1)
 longLen  = input.int(22,  "Long MA Period",  minval=2)
@@ -32,8 +36,8 @@ obLevel = input.int(80, "Overbought Level", minval=1)
 osLevel = input.int(20, "Oversold Level",   minval=1)
 
 // ─── WMA Calculation ──────────────────────────────────────────────────────
-shortMA = ta.wma(src, shortLen)
-longMA  = ta.wma(src, longLen)
+shortMA = ta.wma(spread, shortLen)
+longMA  = ta.wma(spread, longLen)
 
 diff = shortMA - longMA
 
