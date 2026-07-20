@@ -1,7 +1,7 @@
 //@version=5
 indicator(
-     title="COT Valuation Index"
-     , shorttitle="COT Val"
+     title="Will Val"
+     , shorttitle="Will Val"
      , format=format.percent
      , precision=1
      , timeframe=""
