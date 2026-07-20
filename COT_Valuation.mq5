@@ -29,7 +29,7 @@
 //| Inputs                                                           |
 //+------------------------------------------------------------------+
 input group "COT Valuation Index"
-input ENUM_APPLIED_PRICE InpSource        = PRICE_CLOSE;  // Data Source
+input string             InpGoldTicker    = "XAUUSD";     // Gold Ticker
 input int                InpShortMA       = 2;            // Short MA Period
 input int                InpLongMA        = 22;           // Long MA Period
 input int                InpLookbackYears = 3;            // Lookback Range (years)
@@ -49,8 +49,7 @@ double osLowerBuffer[];    // oversold fill lower boundary (0)
 //+------------------------------------------------------------------+
 //| Handles & globals                                                |
 //+------------------------------------------------------------------+
-int wmaShortHandle;
-int wmaLongHandle;
+int goldCloseHandle;
 int lookbackBars;
 
 //+------------------------------------------------------------------+
@@ -88,10 +87,8 @@ int OnInit()
    IndicatorSetDouble(INDICATOR_MINIMUM, 0);
    IndicatorSetDouble(INDICATOR_MAXIMUM, 100);
 
-   wmaShortHandle = iMA(_Symbol, _Period, InpShortMA, 0, MODE_LWMA, InpSource);
-   wmaLongHandle  = iMA(_Symbol, _Period, InpLongMA,  0, MODE_LWMA, InpSource);
-
-   if(wmaShortHandle == INVALID_HANDLE || wmaLongHandle == INVALID_HANDLE)
+   goldCloseHandle = iClose(InpGoldTicker, _Period);
+   if(goldCloseHandle == INVALID_HANDLE)
       return(INIT_FAILED);
 
    lookbackBars = InpLookbackYears * 52;
@@ -104,10 +101,23 @@ int OnInit()
 //+------------------------------------------------------------------+
 void OnDeinit(const int reason)
 {
-   if(wmaShortHandle != INVALID_HANDLE)
-      IndicatorRelease(wmaShortHandle);
-   if(wmaLongHandle != INVALID_HANDLE)
-      IndicatorRelease(wmaLongHandle);
+   if(goldCloseHandle != INVALID_HANDLE)
+      IndicatorRelease(goldCloseHandle);
+}
+
+//+------------------------------------------------------------------+
+//| Manual WMA (Linear Weighted Moving Average)                      |
+//+------------------------------------------------------------------+
+double ComputeWMA(const double &data[], int period, int index)
+{
+   double sum = 0, wsum = 0;
+   for(int k = 0; k < period && (index - k) >= 0; k++)
+   {
+      double w = (double)(period - k);
+      sum += data[index - k] * w;
+      wsum += w;
+   }
+   return (wsum > 0) ? sum / wsum : 0;
 }
 
 //+------------------------------------------------------------------+
@@ -127,16 +137,32 @@ int OnCalculate(const int rates_total,
    if(rates_total < InpLongMA)
       return(0);
 
-   double wmaShort[], wmaLong[];
-   ArraySetAsSeries(wmaShort, true);
-   ArraySetAsSeries(wmaLong, true);
-
-   int copiedShort = CopyBuffer(wmaShortHandle, 0, 0, rates_total, wmaShort);
-   int copiedLong  = CopyBuffer(wmaLongHandle,  0, 0, rates_total, wmaLong);
-
-   if(copiedShort < rates_total || copiedLong < rates_total)
+   //--- Get gold close data
+   double goldClose[];
+   int copiedGold = CopyClose(InpGoldTicker, _Period, 0, rates_total, goldClose);
+   if(copiedGold < rates_total)
       return(0);
 
+   //--- Compute spread = goldClose - chartClose
+   double spreadData[];
+   ArrayResize(spreadData, rates_total);
+   for(int i = 0; i < rates_total; i++)
+      spreadData[i] = goldClose[i] - close[i];
+
+   //--- Pre-compute short and long WMA on spread
+   double shortWma[], longWma[];
+   ArrayResize(shortWma, rates_total);
+   ArrayResize(longWma,  rates_total);
+   ArrayInitialize(shortWma, 0);
+   ArrayInitialize(longWma,  0);
+
+   for(int i = InpShortMA - 1; i < rates_total; i++)
+      shortWma[i] = ComputeWMA(spreadData, InpShortMA, i);
+
+   for(int i = InpLongMA - 1; i < rates_total; i++)
+      longWma[i] = ComputeWMA(spreadData, InpLongMA, i);
+
+   //--- Fill zone buffers
    for(int i = 0; i < rates_total; i++)
    {
       obUpperBuffer[i] = 100.0;
@@ -151,7 +177,7 @@ int OnCalculate(const int rates_total,
 
    for(int i = start; i < rates_total; i++)
    {
-      double diff = wmaShort[i] - wmaLong[i];
+      double diff = shortWma[i] - longWma[i];
 
       double hi = diff;
       double lo = diff;
@@ -159,7 +185,7 @@ int OnCalculate(const int rates_total,
 
       for(int j = lookStart; j < i; j++)
       {
-         double d = wmaShort[j] - wmaLong[j];
+         double d = shortWma[j] - longWma[j];
          if(d > hi) hi = d;
          if(d < lo) lo = d;
       }
