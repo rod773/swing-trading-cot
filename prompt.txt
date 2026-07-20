@@ -1,16 +1,18 @@
-Create a TradingView Pine Script indicator called cot.pine using the formula from the attached video transcript (1-.srt). The video describes Larry Williams' 1998 WillVal valuation method:
+Modify cot.pine so that the data used is the spread of Gold and the symbol of the chart where the indicator is being used.
 
 Formula:
-1. Take weekly data
-2. Calculate a 2-week WMA of the data series
-3. Calculate a 22-week WMA of the data series
-4. diff = shortMA - longMA
-5. Normalize diff as a percentage of its 3-year rolling range: (diff - min) / (max - min) * 100
+1. Fetch Gold price via configurable ticker (default XAUUSD)
+2. Get the chart symbol's close
+3. spread = goldClose - chartClose
+4. Calculate a 2-week WMA of the spread
+5. Calculate a 22-week WMA of the spread
+6. diff = shortMA - longMA
+7. Normalize diff as a percentage of its 3-year rolling range: (diff - min) / (max - min) * 100
 
-Interpretation: 0-100 scale. High = overvalued/overbought, Low = undervalued/oversold. Same formula structure used for COT report analysis (as mentioned at subtitle 53-54).
+Interpretation: 0-100 scale. High = overvalued/overbought, Low = undervalued/oversold.
 
 The indicator should:
-- Let the user select the data source
+- Let the user configure the Gold ticker
 - Let the user configure MA periods and lookback
 - Plot the %-rank with overbought/oversold reference lines at 80/20
 - Include overbought/oversold background fills
