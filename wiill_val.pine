@@ -23,9 +23,11 @@ indicator(
 
 // ─── Inputs ────────────────────────────────────────────────────────────────
 goldTicker = input.symbol("XAUUSD", "Gold Ticker")
+usdxTicker = input.symbol("DXY", "USDX Ticker")
 chartSrc  = close
 
 goldClose = request.security(goldTicker, timeframe.period, close)
+usdxClose = request.security(usdxTicker, timeframe.period, close)
 spread = goldClose - chartSrc
 
 shortLen = input.int(2,   "Short MA Period", minval=1)
@@ -53,6 +55,17 @@ rng = hi - lo
 
 pct = rng > 0 ? (diff - lo) / rng * 100 : 50
 
+// ─── USDX %-Rank (same methodology) ──────────────────────────────────────
+shortMA_u = ta.wma(usdxClose, shortLen)
+longMA_u  = ta.wma(usdxClose, longLen)
+diff_u    = shortMA_u - longMA_u
+
+hi_u = ta.highest(diff_u, bars)
+lo_u = ta.lowest(diff_u, bars)
+rng_u = hi_u - lo_u
+
+usdxPct = rng_u > 0 ? (diff_u - lo_u) / rng_u * 100 : 50
+
 // ─── Visuals ───────────────────────────────────────────────────────────────
 hline(50,  "Midline",         color=color.gray,   linestyle=hline.style_dotted)
 hline(obLevel, "Overbought",  color=color.maroon, linestyle=hline.style_dashed)
@@ -60,6 +73,7 @@ hline(osLevel, "Oversold",    color=color.green,  linestyle=hline.style_dashed)
 
 color pColor = pct > obLevel ? color.maroon : pct < osLevel ? color.green : color.blue
 plot(pct, "%-Rank", pColor, linewidth=2)
+plot(usdxPct, "USDX %-Rank", color.orange, linewidth=1)
 
 fill(plot(obLevel, display=display.none), plot(100, display=display.none),
   color.new(color.maroon, 85), title="Overbought Zone")
